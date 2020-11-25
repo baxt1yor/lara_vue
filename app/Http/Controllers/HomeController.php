@@ -28,7 +28,7 @@ class HomeController extends Controller
         $validator = Validator::make($request->all(), $req);
         
         if($validator->fails()){
-            return response()->json($validator->errors(), 400);
+            return response()->json(['message' => "Validation Failed"], 422);
         }
 
         $contact->create([

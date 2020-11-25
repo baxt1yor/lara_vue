@@ -57,9 +57,9 @@
 
         methods: {
             feedbackSend(){
-                this.form.post('/feedback')
+                axios.post('/feedback')
                 .then(({ data }) => { this.message = data.message; this.success = true; })
-                .catch(err => { this.err = true; this.err_msg = err});
+                .catch(err => { this.err = true; this.err_msg = err.message});
             }
         }
     }

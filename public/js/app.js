@@ -1969,13 +1969,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(vform__WEBPACK_IMPORTED_MOD
     feedbackSend: function feedbackSend() {
       var _this = this;
 
-      this.form.post('/feedback').then(function (_ref) {
+      axios.post('/feedback').then(function (_ref) {
         var data = _ref.data;
         _this.message = data.message;
         _this.success = true;
       })["catch"](function (err) {
         _this.err = true;
-        _this.err_msg = err;
+        _this.err_msg = err.message;
       });
     }
   }
