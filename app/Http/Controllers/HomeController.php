@@ -28,7 +28,7 @@ class HomeController extends Controller
         $validator = Validator::make($request->all(), $req);
         
         if($validator->fails()){
-            return response()->json(['message' => "Validation Failed"], 422);
+            return response()->json(['error_message' => "Validation Failed"], 422);
         }
 
         $contact->create([
@@ -37,7 +37,7 @@ class HomeController extends Controller
             'message' => $request->post('message')
         ]);
 
-        return response()->json(['message' => "Your message has been delivered"], 200);
+        return response()->json(['error_message' => "Your message has been delivered"], 200);
 
     }
 }
